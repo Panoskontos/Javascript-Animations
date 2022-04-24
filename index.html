@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="red" style="width:30px; height:30px; background-color:red;">
+    </div>
+    <div id="blue" style="width:30px; height:30px; background-color:blue;">
+    </div>
+    <div id="green" style="width:30px; height:30px; background-color:green;">
+    </div>
+<br>
+<br>
+    <button id="play">play()</button>
+    <button id="reverse">reverse()</button>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script>
+       var red_kunai = gsap.from('#red',{
+            rotation: 3027,duration:10,x:800,y:100,
+            ease: "none", 
+            paused: true,
+        });
+       var blue_kunai = gsap.to('#blue',{
+            rotation: 1270,duration:10,x:800,y:100,
+            ease: "none", 
+            paused: true,
+        });
+       var green_kunai = gsap.fromTo('#green',{x:0,y:0},{x:900,y:-50, duration:10, paused: true,});
+
+        document.querySelector("#play").onclick = () => {
+            blue_kunai.play();
+            red_kunai.play();
+            green_kunai.play();
+        } 
+        document.querySelector("#reverse").onclick = () => 
+        {
+
+            red_kunai.reverse();
+            blue_kunai.reverse();
+            green_kunai.reverse();
+        }
+    </script>
+</body>
+</html>

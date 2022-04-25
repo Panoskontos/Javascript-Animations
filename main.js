@@ -4,7 +4,19 @@ var red_kunai = gsap.from('#red',{
     paused: true,
 });
 var blue_kunai = gsap.to('#blue',{
-    rotation: 1270,duration:10,x:800,y:100,
+    rotation: '+=360',
+    // repeat:-1,
+    // transformOrigin: '100% 0%',
+
+    // what will look like inthe end
+    width: '60px',
+    height: '60px',
+    borderRadius:'50%',
+    opacity:1,
+    background:'aqua',
+    
+    duration:5,
+    x:600,y:100,
     ease: "none", 
     paused: true,
 });

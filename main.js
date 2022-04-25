@@ -1,6 +1,8 @@
-var red_kunai = gsap.from('#red',{
-    rotation: 3027,duration:10,x:600,y:100,
-    ease: "none", 
+var red_kunai = gsap.from('.red',{
+    rotation: 3027,
+    duration:1,
+    x:600,y:100,
+    background:'crimson',
     paused: true,
 });
 var blue_kunai = gsap.to('#blue',{
@@ -9,25 +11,32 @@ var blue_kunai = gsap.to('#blue',{
     // transformOrigin: '100% 0%',
 
     // what will look like inthe end
+    stagger: 0.1,
     width: '60px',
     height: '60px',
     borderRadius:'50%',
-    opacity:0,
+    // opacity:0,
     background:'aqua',
-    delay:2,
+    delay:1,
     yoyo: true,
     repeat:1,
     
-    duration:3,
+    duration:4,
     x:600,y:100,
-    ease: "none", 
+    ease: "bounce.out", 
     paused: true,
 
     onStart:() => {
         console.log('Les goooo')
     }
 });
-var green_kunai = gsap.fromTo('#green',{x:0,y:0},{x:600,y:-50, duration:10, paused: true,});
+var green_kunai = gsap.fromTo('#green',
+{x:0,y:0},
+{   
+    x:600,y:-50,
+    ease:'bounce.out',
+    duration:2,
+    paused: true,});
 
 document.querySelector("#play").onclick = () => {
     blue_kunai.play();
@@ -41,3 +50,7 @@ document.querySelector("#reverse").onclick = () =>
     blue_kunai.reverse();
     green_kunai.reverse();
 }
+
+let boxesT = gsap.timeline({repeat:-1})
+
+    boxesT.to('#blue')
